@@ -1,0 +1,215 @@
+
+html{
+    max-height:100vh;
+    font-size:62.5%;
+ }
+
+body{
+  padding: 10px;
+  background-color:#446DD7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  Roboto, Oxygen,Ubuntu, Cantarell,'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.b_voltar{
+    height: 8vh;
+    margin: 0 1vw 1vh 0;
+}
+
+
+.b_voltar:hover{
+    height:9vh;
+    cursor: pointer;
+}
+
+
+.div_esfera{
+    height: 87vh;
+    background-color: rgb(50, 156, 237);
+}
+
+
+.esfera1{
+    border:2px solid rgb(255, 139, 15);
+    background-image: url(../local\ esfera\ 1\ estrela.png);
+    background-size: 100%;
+    background-repeat: initial;
+}
+.boll_1{
+    height:0.5vh;
+    margin:428px 0 0 92px;
+}
+.boll_1:hover{
+    height:4.5vh;
+    margin:415px 0 0 82px;
+    transition:ease-in 0.2s;
+}
+
+
+
+.esfera2{
+    border:2px solid rgb(255, 139, 15);
+    background-image: url(../local\ esfera\ 2estrelas.png);
+    background-size: 100%;
+    background-repeat: initial;
+}
+.boll_2{
+    height:0.5vh;
+    float: right;
+    margin:436px 224px 0 0;
+}
+.boll_2:hover{
+    height:6vh;
+    margin:420px 209px 0 0;
+    transition:ease-in 0.2s;
+}
+
+
+
+.esfera3{
+    border:2px solid rgb(255, 139, 15);
+    background-image: url(../local\ esferea\ 3\ estrela.png);
+    background-size: 100%;
+    background-repeat: initial;
+}
+.boll_3{
+    height:0.5vh;
+    float: right;
+    margin:411px 213px 0 0;
+}
+.boll_3:hover{
+    height:6vh;
+    margin:395px 195px 0 0;
+    transition:ease-in 0.2s;
+}
+
+
+
+.esfera4{
+    border:2px solid rgb(255, 139, 15);
+    background-image: url(../local\ esfera\ 4\ estrela.png);
+    background-size: 100%;
+    background-repeat: initial;
+}
+.boll_4{
+    height:0.5vh;
+    margin:439px 0 0 25px;
+}
+.boll_4:hover{
+    height:5vh;
+    margin:426px 0 0 12px;
+    transition:ease-in 0.2s;
+}
+
+
+
+.esfera5{
+    border:2px solid rgb(255, 139, 15);
+    background-image: url(../local\ esfera\ 5\ estrela.png);
+    background-size: 100%;
+    background-repeat: initial;
+}
+.boll_5{
+    height:0.5vh;
+    margin:113px 0 0 120px;
+}
+.boll_5:hover{
+    height:5vh;
+    margin:100px 0 0 106px;
+    transition:ease-in 0.2s;
+}
+
+
+
+.esfera6{
+    border:2px solid rgb(255, 139, 15);
+    background-image: url(../local\ esfera\ 6\ estrela.png);
+    background-size: 100%;
+    background-repeat: initial;
+}
+.boll_6{
+    height:0.5vh;
+    margin:310px 0 0 320px;
+}
+.boll_6:hover{
+    height:6vh;
+    margin:292px 0 0 304px;
+    transition:ease-in 0.2s;
+}
+
+
+
+.esfera7{
+    border:2px solid rgb(255, 139, 15);
+    background-size: 100%;
+    background-image: url(../local\ esfera\ 7\ estrela.png);
+    background-repeat: initial;
+    text-align: center;
+}
+.boll_7{
+    height:0.5vh;
+    margin:348px 150px 0 0;
+}
+.boll_7:hover{
+    height:5.5vh;
+    margin:328px 150px 0 0;
+    transition:ease-in 0.2s;
+}
+
+/* div envocar sheilong */
+
+#fazerDesejo{
+   height: 88vh; 
+   display: flex;
+   background-color: #446DD7;
+}
+
+.banner{
+    height: 88vh;
+    width: 34vw;
+    background-image: url(../img/goku\ bb.jpg);
+    background-size: 100%;
+    border-radius: 10px;
+}
+
+.conteudo{
+    width: 59vw;
+    height: 67vh;
+    background-color: white;
+    text-align: center;
+    padding: 10vh 1vw;
+    border-radius: 10px;
+    border: 3px solid rgb(232, 99, 28);
+}
+
+.div_mensagem{
+    height: 38vh;
+    width: 70%;
+    margin:40px auto;
+    font-size: 2.0rem;
+    font-weight:600;
+    background-color: rgb(235, 115, 24);
+    border-radius: 10px;
+    padding: 5vh;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 6px #446DD7;
+}
+
+.button{
+    margin: 3vh 1vw;
+    border-radius: 1.0rem;
+    padding: 1.7vh 3.5rem;
+    background-color:rgb(232, 99, 28);
+    cursor: pointer;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border:2px solid #3157b8;
+}
+
+.button:hover{
+    background-color:#446DD7; 
+    box-shadow:1px 1px 7px rgb(255, 250, 250); 
+}
+

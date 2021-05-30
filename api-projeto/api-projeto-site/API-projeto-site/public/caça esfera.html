@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caça-as-esferas</title>
+    <link rel="stylesheet" href="stylos/caça as esferas.css">
+    <link rel="shortcut icon" href="img/icon dragon.png">
+    <script type="text/javascript" src="esferas.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+</head>
+
+<script>
+   verificar_autenticacao();
+</script>
+
+<body>
+    <div class="nav_bar">
+        <a href="sagas.html"><img src="img/seta_voltar.png" alt="" class="b_voltar"></a>
+    </div>
+
+    <div id="fazerDesejo">
+       <div class="banner"></div>
+       <div class="conteudo">
+           <div class="div_mensagem">
+               Olá Guerreiro Z, depois de ter conhecido o mundo de Dragon ball é hora de se a venturar 
+               viajando por 7 locais onde se encontram as esferas do dragão, e como recompensa caso 
+               encontre todas você poderar ter seu desejo realizado!
+               <br><br>
+               A cada esfera encontrada você viajara para um novo local onde estara localizada a proxima esfera.
+           </div>
+           <button onclick="encontrar()" class="button">encontrar esferas</button>
+       </div>
+    </div>
+
+
+
+    <div id="local_1" class="div_esfera esfera1" style="display: none;">
+        <div id="navegar">
+            <button onclick="voltar()" style="margin-left:420px ;" class="button">ANTERIOR</button>
+            <button onclick="proximo()" class="button">PROXIMO</button>
+        </div>
+        <img onclick="guardar_1()" class="boll_1" src="img/esfera-1.png" alt="esfera 1 estrelas">
+    </div>
+
+    <div id="local_2" class="div_esfera esfera2" style="display: none;">
+        <img onclick="guardar_2()" class="boll_2" src="img/esfera 2 stars.png" alt="esfera 2 estrelas">
+        <div id="navegar">
+            <button onclick="voltar()"  style="margin-left:420px ;" class="button">ANTERIOR</button>
+            <button onclick="proximo()"  class="button">PROXIMO</button>
+        </div>
+    </div>
+
+    <div id="local_3" class="div_esfera esfera3" style="display: none;">
+        <div id="navegar">
+            <button onclick="voltar()"  style="margin-left:420px ;" class="button">ANTERIOR</button>
+            <button onclick="proximo()" class="button">PROXIMO</button>
+        </div>
+        <img onclick="guardar_3()" class="boll_3" src="img/esfera 3 stars.png" alt="esfera 3 estrelas">
+    </div>
+
+    <div id="local_4" class="div_esfera esfera4" style="display: none;">
+        <div id="navegar">
+            <button onclick="voltar()" style="margin-left:420px ;" class="button">ANTERIOR</button>
+            <button onclick="proximo()" class="button">PROXIMO</button>
+        </div>
+        <img onclick="guardar_4()" class="boll_4" src="img/esfera 4 estrelas.png" alt="esfera 4 estrelas">
+    </div>
+
+    <div id="local_5" class="div_esfera esfera5" style="display: none;">
+        <div id="navegar">
+            <button onclick="voltar()"  style="margin-left:420px ;" class="button">ANTERIOR</button>
+            <button onclick="proximo()" class="button">PROXIMO</button>
+        </div>
+        <img onclick="guardar_5()" class="boll_5" src="img/esfera 5 stras.png" alt="esfera 5 estrelas">
+    </div>
+
+    <div id="local_6" class="div_esfera esfera6" style="display: none;">
+        <div id="navegar">
+            <button onclick="voltar()"  style="margin-left:420px ;" class="button">ANTERIOR</button>
+            <button onclick="proximo()" class="button">PROXIMO</button>
+        </div>
+        <img onclick="guardar_6()" class="boll_6" src="img/esfera 6 stars.png" alt="esfera 6 estrelas">
+    </div>
+
+    <div id="local_7" class="div_esfera esfera7" style="display: none;">
+        <div id="navegar">
+            <button onclick="voltar()"  style="margin-left:50px ;" class="button">ANTERIOR</button>
+            <button onclick="proximo()" class="button">PROXIMO</button>
+        </div>
+        <img onclick="guardar_7()" class="boll_7" src="img/esfera 7 stars.png" alt="esfera 7 estrelas">
+    </div>
+    
+    <div class="navegar"></div>
+
+</body>
+
+</html>
