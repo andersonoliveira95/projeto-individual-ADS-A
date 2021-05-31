@@ -11,10 +11,9 @@
 
 </head>
 
-
-<body onload="obterPublicacoes()">
+<body onload="obterPublicacoes(),tocar_audio()">
     
-    <audio id="musica" src=""></audio>
+    <audio id="audio" src=""></audio>
 
     <div class="desejo">
         <img src="img/shailong3.gif" alt="">
@@ -62,13 +61,11 @@
 <script>
 
     function tocar_audio(){
-        musica.src = "audio/aberturaDGB.mpeg";
-        musica.play();
-        musica.loop();
-        // musica.volume = 0.05;
-
+      audio.src = "audio/aberturaDGB.mpeg"
+      audio.play();
+      audio.loop();
     }
-
+     
     tocar_audio();
 
     function publicar() {
