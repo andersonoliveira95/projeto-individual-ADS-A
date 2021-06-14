@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game da Cruzadinha</title>
+
+  <style>
+    body {
+      background-image: url(https://i.ytimg.com/vi/-tTglFYF1wo/maxresdefault.jpg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    #cruzadinha {
+      overflow: auto;
+      width: 50.34%;
+      margin: auto;
+    }
+
+    .campo1 {
+      width: 4.67%;
+      height: 120px;
+      color: white;
+      float: left;
+      border: 2px solid rgba(32, 75, 182, 0.172);
+      font-size: 60px;
+
+    }
+
+    .campo2 {
+      width: 4.67%;
+      height: 120px;
+      float: left;
+      background-color: white;
+      border: 2px solid rgb(39, 38, 38);
+      text-align: center;
+      font-size: 80px;
+      border-radius: 20px;
+      box-shadow: 1px 1px 2px cyan;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .campo3 {
+      width: 4.67%;
+      height: 120px;
+      float: left;
+      background-color: cyan;
+      border: 2px solid rgb(4, 4, 4);
+      border-radius: 70px;
+      color: rgb(0, 0, 0);
+      font-size: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .titulo {
+      font-size: 120px;
+      color: cyan;
+      text-shadow: 10px 10px 15px black;
+      margin: 0;
+    }
+
+    .button {
+      border-radius: 90px;
+      background-color: cyan;
+      padding: 20px 150px;
+      font-size: 80px;
+      font-weight: 600;
+      box-shadow: 10px 10px 15px black;
+      margin-right: 60px;
+      margin-top: 0;
+      cursor: pointer;
+    }
+  
+    #instrucao {
+      font-size: 100px;
+      width: 60%;
+      overflow: auto;
+      margin: 200px auto;
+      border-radius: 40px;
+      text-shadow: 7px 7px 10px black;
+      border: 10px solid rgba(20, 25, 151, 0.802);
+      padding: 60px;
+      color: white;
+      background-color: rgba(55, 87, 148, 0.563);
+    }
+
+    #instrucao h2 {
+      margin: 0;
+      color: rgb(6, 232, 232);
+      text-shadow: 5px 5px 10px black;
+    }
+
+    .pergunta {
+      margin: auto;
+      height: 600px;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      font-weight: 600;
+      color: rgb(0, 0, 0);
+      padding: 10px;
+      border: 5px solid cyan;
+    }
+
+    #questionario {
+      color: cyan;
+      ;
+    }
+
+    .inp_resposta {
+      margin: 30px;
+      width: 20%;
+      height: 150px;
+      border-radius: 30px;
+      border: 5px solid b;
+      text-align: center;
+      font-size: 80px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div id="inicio">
+      <h1 class="titulo">Palavras-Cruzadas</h1>
+      <br><br><br>
+      <button onclick="jogar()" class="button">Iniciar Jogo</button> <button onclick="regras()" class="button">Como
+        Jogar</button>
+    </div>
+
+
+    <br><br>
+    <div id="vitoria" class="titulo" style="display:none;">
+      <br><br> Parabens você conseguiu completar a cruzadinha!!<br>
+      <img style="height:600px;" src="https://www.vippng.com/png/full/429-4296895_you-win-u-w.png" alt="vitoria">`
+      <br><br>
+      <button class="button" onclick="reset()">Voltar ao inicio</button>
+    </div>
+    <div id="instrucao" style="display: none;">
+      <h2>Intruções do Jogo:</h2>
+
+      * Clique em "Iniciar o Jogo" para iniciar uma partida <br>
+
+      * Perguntas serão exibidas na parte inferior <br>
+
+      * Insira a sua resposta na caixa de texto e clique em "Responder" para conferir a sua resposta <br>
+
+      * A partida acaba quando as 16 questões forem respondidas <br>
+    </div>
+    <div id="cruzadinha" style="display: none;">
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo3">7</div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo3">8</div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo3">2</div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="fls_1" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="mdm_1" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div id="pergunta1" class="campo3">1</div>
+      <div id="cpu_1" class="campo2"></div>
+      <div id="cpu_2" class="campo2"></div>
+      <div id="cpu_3" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="fls_2" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="mdm_2" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="ula_1" class="campo2"></div>
+      <div class="campo3">9</div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="fls_3" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo3">4</div>
+      <div id="ram_1" class="campo2"></div>
+      <div id="ram_2" class="campo2"></div>
+      <div id="ram_3" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo3">11</div>
+      <div id="ula_2" class="campo2"></div>
+      <div id="dma_1" class="campo2"></div>
+      <div id="adrbus_1" class="campo2"></div>
+      <div id="adrbus_2" class="campo2"></div>
+      <div id="adrbus_3" class="campo2"></div>
+      <div id="adrbus_4" class="campo2"></div>
+      <div class="campo2"></div>
+      <div id="adrbus_5" class="campo2"></div>
+      <div id="adrbus_6" class="campo2"></div>
+      <div id="fls_4" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="mdm_3" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dma_2" class="campo2"></div>
+      <div class="campo3">15</div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo3">6</div>
+      <div class="campo1"></div>
+      <div id="fls_5" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="mdm_4" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo3">16</div>
+      <div id="quad_1" class="campo2"></div>
+      <div id="quad_2" class="campo2"></div>
+      <div id="dma_3" class="campo2"></div>
+      <div id="quad_3" class="campo2"></div>
+      <div class="campo2"></div>
+      <div id="quad_4" class="campo2"></div>
+      <div id="quad_5" class="campo2"></div>
+      <div id="quad_6" class="campo2"></div>
+      <div id="epm_1" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo3">14</div>
+      <div id="mdm_5" class="campo2"></div>
+      <div id="i7_1" class="campo2"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dual_1" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="epm_2" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="mdm_6" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dual_2" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo3">5</div>
+      <div id="rom_1" class="campo2"></div>
+      <div id="rom_2" class="campo2"></div>
+      <div id="rom_3" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dual_3" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="epm_3" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo3">12</div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="mdm_7" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="epm_4" class="campo2"></div>
+      <div class="campo1"></div>
+      <div id="dtbus_1" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dual_4" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dtbus_2" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="mdm_8" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dual_5" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo3">13</div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dtbus_3" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="mdm_9" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo3">3</div>
+      <div id="rgt_1" class="campo2"></div>
+      <div id="rgt_2" class="campo2"></div>
+      <div id="rgt_3" class="campo2"></div>
+      <div id="rgt_4" class="campo2"></div>
+      <div id="rgt_5" class="campo2"></div>
+      <div id="rgt_6" class="campo2"></div>
+      <div id="rgt_7" class="campo2"></div>
+      <div id="rgt_8" class="campo2"></div>
+      <div id="rgt_9" class="campo2"></div>
+      <div id="rgt_10" class="campo2"></div>
+      <div id="rgt_11" class="campo2"></div>
+      <div id="rgt_12" class="campo2"></div>
+      <div id="rgt_13" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dual_6" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="i5_1" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="mdm_10" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dtbus_4" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="mdm_11" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div id="dtbus_5" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo3">10</div>
+      <div id="cs_1" class="campo2"></div>
+      <div id="cs_2" class="campo2"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+      <div class="campo1"></div>
+
+    </div>
+
+    <div id="questao1" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">1-Qual a a parte do processador que possui unidade lógica e aritmética, os registradores e
+          a unidade de controle?
+        </b> <input class="inp_resposta" id="inp_resposta1" placeholder="Digite aqui sua resposta"><br>
+        <button id="b_resposta" onclick="resposta1()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao2" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">2-Qual a a parte da CPU que realiza todas as operações lógicas e aritméticas?
+        </b> <input class="inp_resposta" id="inp_resposta2" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta2()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao3" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">3-Qual a a parte da CPU destinada ao armazenamento de dados e instruções?
+        </b> <input class="inp_resposta" id="inp_resposta3" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta3()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao4" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">4-Qual o nome da memoria de armazenamento de dados temporário e super-rápido para acesso
+          imediato pelos computadores?
+        </b> <input class="inp_resposta" id="inp_resposta4" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta4()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao5" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">5-Qual o nome da memoria que apos ser gravada não podem mais sofrer alterações?
+        </b> <input class="inp_resposta" id="inp_resposta5" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta5()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao6" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">6-Qual é a memória programável apagável somente de leitura?
+        </b> <input class="inp_resposta" id="inp_resposta6" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta6()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao7" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">7-Como é chamado o chip re-escrevível que, ao contrário de uma memória RAM convencional,
+          preserva o seu conteúdo sem a necessidade de fonte de alimentação ?
+        </b> <input class="inp_resposta" id="inp_resposta7" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta7()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao8" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">8-Como é chamado a memoria que tem como função armazenar grandes quantidades de
+          informações?
+        </b> <input class="inp_resposta" id="inp_resposta8" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta8()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao9" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">9-Qual o nome do recurso da placa mãe que capacita os periféricos
+          a terem acesso direto à memória RAM?
+        </b> <input class="inp_resposta" id="inp_resposta9" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta9()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao10" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">10-Qual o nome dado ao conjunto de chips (ou circuitos integrados)
+          utilizado na placa-mãe para fazer o controle dos barramentos?
+        </b> <input class="inp_resposta" id="inp_resposta10" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta10()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao11" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">11- Qual o nome do barramento usado para informar os endereços físicos/locações de memória
+          de um
+          computador que o microprocessador ou dispositivo deseja acessar?
+        </b> <input class="inp_resposta" id="inp_resposta11" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta11()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao12" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">12- Qual o nome do barramento de linhas usadas para transferência de dados e
+          instruções entre processador, memória e dispositivosde E/S?
+        </b> <input class="inp_resposta" id="inp_resposta12" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta12()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao13" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">13- Qual nome dos processadores de 5º geração da intel?
+        </b> <input class="inp_resposta" id="inp_resposta13" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta13()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao14" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">14- Qual nome dos processadores de 7º geração da intel?
+        </b> <input class="inp_resposta" id="inp_resposta14" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta14()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao15" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">15-Como é chamado os processadores que possui duas unidade de processamento
+          separadas capaz de lidar com tarefas independentes ?
+        </b> <input class="inp_resposta" id="inp_resposta15" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta15()" class="button">RESPONDER</button>
+      </p>
+    </div>
+
+    <div id="questao16" class="pergunta" style="display: none;">
+      <p>
+        <b id="questionario">16-Como é chamado os processadores que possui quatro unidade de processamento
+          separadas capaz de lidar com tarefas independentes ?
+        </b> <input class="inp_resposta" id="inp_resposta16" placeholder="Digite aqui sua resposta"><br>
+        <button onclick="resposta16()" class="button">RESPONDER</button>
+      </p>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<script>
+
+  acertos = 0;
+
+  function regras() {
+    instrucao.style.display = "block";
+    cruzadinha.style.display = "none";
+    questao1.style.display = "none";
+  }
+
+  function jogar() {
+    instrucao.style.display = "none";
+    cruzadinha.style.display = "block";
+    questao1.style.display = "block";
+  }
+
+  function resposta1() {
+    var rsp1 = inp_resposta1.value;
+
+
+    if (rsp1.toUpperCase().trim() == "CPU" ) {
+      cpu_1.innerHTML = "C"; cpu_2.innerHTML = "P"; cpu_3.innerHTML = "U";
+      questao1.style.display = "none";
+      questao2.style.display = "block";
+
+    } else if (rsp1 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta2() {
+    var rsp2 = inp_resposta2.value;
+
+
+    if (rsp2.toUpperCase().trim() == "ULA") {
+      ula_1.innerHTML = "L"; ula_2.innerHTML = "A";
+      questao2.style.display = "none";
+      questao3.style.display = "block";
+
+    } else if (rsp1 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta3() {
+    var rsp3 = inp_resposta3.value;
+
+
+    if (rsp3.toUpperCase().trim() == "REGISTRADORES") {
+      rgt_1.innerHTML = "R"; rgt_2.innerHTML = "E"; rgt_3.innerHTML = "G"; rgt_4.innerHTML = "I"; rgt_5.innerHTML = "S";
+      rgt_6.innerHTML = "T"; rgt_7.innerHTML = "R"; rgt_8.innerHTML = "A"; rgt_9.innerHTML = "D"; rgt_10.innerHTML = "O";
+      rgt_11.innerHTML = "R"; rgt_12.innerHTML = "E"; rgt_13.innerHTML = "S";
+      questao3.style.display = "none";
+      questao4.style.display = "block";
+
+    } else if (rsp3 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta4() {
+    var rsp4 = inp_resposta4.value;
+
+
+    if (rsp4.toUpperCase().trim() == "RAM") {
+      ram_1.innerHTML = "R"; ram_2.innerHTML = "A"; ram_3.innerHTML = "M";
+      questao4.style.display = "none";
+      questao5.style.display = "block";
+
+    } else if (rsp4 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+
+  function resposta5() {
+    var rsp5 = inp_resposta5.value;
+
+
+    if (rsp5.toUpperCase().trim() == "ROM") {
+      rom_1.innerHTML = "R"; rom_2.innerHTML = "O"; rom_3.innerHTML = "M";
+      questao5.style.display = "none";
+      questao6.style.display = "block";
+
+    } else if (rsp5 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta6() {
+    var rsp6 = inp_resposta6.value;
+
+
+    if (rsp6.toUpperCase().trim() == "EPROM") {
+      epm_1.innerHTML = "E"; epm_2.innerHTML = "P"; epm_3.innerHTML = "O"; epm_4.innerHTML = "M";
+      questao6.style.display = "none";
+      questao7.style.display = "block";
+
+    } else if (rsp6 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta7() {
+    var rsp7 = inp_resposta7.value;
+
+
+    if (rsp7.toUpperCase().trim() == "FLASH") {
+      fls_1.innerHTML = "F"; fls_2.innerHTML = "L"; fls_3.innerHTML = "A"; fls_4.innerHTML = "S";
+      fls_5.innerHTML = "H";
+      questao7.style.display = "none";
+      questao8.style.display = "block";
+
+    } else if (rsp7 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta8() {
+    var rsp8 = inp_resposta8.value;
+
+
+    if (rsp8.toUpperCase().trim() == "MEMORIA DE MASSA" || rsp8.toUpperCase().trim() == "MEMÓRIA DE MASSA") {
+      mdm_1.innerHTML = "M"; mdm_2.innerHTML = "E"; mdm_3.innerHTML = "Ó"; mdm_4.innerHTML = "R"; mdm_5.innerHTML = "I";
+      mdm_6.innerHTML = "A"; mdm_7.innerHTML = "DE"; mdm_8.innerHTML = "M"; mdm_9.innerHTML = "A";
+      mdm_10.innerHTML = "S"; mdm_11.innerHTML = "A";
+      questao8.style.display = "none";
+      questao9.style.display = "block";
+
+    } else if (rsp8 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta9() {
+    var rsp9 = inp_resposta9.value;
+
+
+    if (rsp9.toUpperCase().trim() == "DMA") {
+      dma_1.innerHTML = "D"; dma_2.innerHTML = "M"; dma_3.innerHTML = "A";
+      questao9.style.display = "none";
+      questao10.style.display = "block";
+
+    } else if (rsp9 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta10() {
+    var rsp10 = inp_resposta10.value;
+
+
+    if (rsp10.toUpperCase().trim() == "CS") {
+      cs_1.innerHTML = "C"; cs_2.innerHTML = "S";
+      questao10.style.display = "none";
+      questao11.style.display = "block";
+
+    } else if (rsp10 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta11() {
+    var rsp11 = inp_resposta11.value;
+
+
+    if (rsp11.toUpperCase().trim() == "ADRESS BUS") {
+      adrbus_1.innerHTML = "R"; adrbus_2.innerHTML = "E"; adrbus_3.innerHTML = "S"; adrbus_4.innerHTML = "S";
+      adrbus_5.innerHTML = "B"; adrbus_6.innerHTML = "U";
+      questao11.style.display = "none";
+      questao12.style.display = "block";
+
+    } else if (rsp11 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta12() {
+    var rsp12 = inp_resposta12.value;
+
+
+    if (rsp12.toUpperCase().trim() == "DATA BUS") {
+      dtbus_1.innerHTML = "D"; dtbus_2.innerHTML = "A"; dtbus_3.innerHTML = "T"; dtbus_4.innerHTML = "B"; dtbus_5.innerHTML = "U";
+      questao12.style.display = "none";
+      questao13.style.display = "block";
+
+    } else if (rsp12 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+
+  function resposta13() {
+    var rsp13 = inp_resposta13.value;
+
+
+    if (rsp13.toUpperCase().trim() == "I5") {
+      i5_1.innerHTML = "5";
+      questao13.style.display = "none";
+      questao14.style.display = "block";
+
+    } else if (rsp13 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta14() {
+    var rsp14 = inp_resposta14.value;
+
+
+    if (rsp14.toUpperCase().trim() == "I7") {
+      i7_1.innerHTML = "7";
+      questao14.style.display = "none";
+      questao15.style.display = "block";
+
+    } else if (rsp14 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta15() {
+    var rsp15 = inp_resposta15.value;
+
+
+    if (rsp15.toUpperCase().trim() == "DUAL CORE") {
+      dual_1.innerHTML = "U"; dual_2.innerHTML = "A"; dual_3.innerHTML = "L"; dual_4.innerHTML = "C";
+      dual_5.innerHTML = "O"; dual_6.innerHTML = "E";
+      questao15.style.display = "none";
+      questao16.style.display = "block";
+
+    } else if (rsp15 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+  }
+
+  function resposta16() {
+    var rsp16 = inp_resposta15.value;
+
+
+    if (rsp16.toUpperCase().trim() == "DUAL CORE") {
+      quad_1.innerHTML = "Q"; quad_2.innerHTML = "U"; quad_3.innerHTML = "D"; quad_4.innerHTML = "C";
+      quad_5.innerHTML = "O"; quad_6.innerHTML = "R";
+      questao16.style.display = "none";
+    } else if (rsp16 == "") {
+      alert("Insira a resposta para ir para proxima pergunta!!");
+    } else {
+      alert("Resposta incorreta!");
+    }
+    cruzadinha.style.display = "none";
+    inicio.style.display = "none";
+    vitoria.style.display = "block";
+  }
+
+  function reset(){
+    window.location.reload();
+  }
+</script>

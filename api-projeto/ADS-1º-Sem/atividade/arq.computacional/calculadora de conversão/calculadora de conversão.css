@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(175, 243, 220);
+    
+}
+
+div{
+    color: rgb(8, 90, 75);
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: 300
+    
+        
+}
+.input{
+    background-color: rgb(231, 255, 247);
+    box-shadow: 2px 2px rgb(8, 90, 75);
+}

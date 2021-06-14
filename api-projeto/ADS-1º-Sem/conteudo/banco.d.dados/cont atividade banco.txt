@@ -1,0 +1,95 @@
+create database Pet;
+create table cliente (
+idCliente int primary key auto_increment,
+nome varchar (40),
+sobrenome varchar (40),
+telFixo varchar (15),
+telCelular varchar (15),
+logradouro varchar(80),
+bairro varchar(40),
+cidade varchar(80),
+complemento varchar(30),
+CEP char(9));
+
+create table pet(
+idPet int primary key auto_increment,
+especie varchar (30),
+nomePet varchar(30),
+raça varchar (30),
+dataNascimento date );
+
+-- Fazer os acertos da chave estrangeira, caso não tenha feito no momento da criação.
+alter table pet auto_increment = 100;
+alter table pet add column fkCliente int;
+alter table pet add foreign key (fkCliente) references cliente(idCliente);
+
+insert into cliente values 
+(null,'Anderson','Oliveira','(11) 4642-5578','(11) 95566-7888','Serra da Mantiqueira','jd. Paineira','Itaquaquecetuba','675','08581-220'),
+(null,'Jefferson','Oliveira','(11) 5782-5578','(11) 96566-4588','Serra da Itabuna','jd. São Paulo','Itaquaquecetuba','120','08581-250'),
+(null,'Julia','Silva','(11) 7582-4278','(11) 97266-4568','Serra dos Mar','jd. Paineira','Itaquaquecetuba','568','08581-680'),
+(null,'Karla','Gomes','(11) 4366-2278','(11) 96496-2288','Serra Formosa','jd.São manoel','Itaquaquecetuba','320','08581-330');
+
+-- Exibir todos os dados de cada tabela criada, separadamente.
+select * from cliente;
+
+insert into pet values 
+(null,'cachorro','Tina','pinscher','2005-02-14',1);
+insert into pet values 
+(null,'cachorro','scoob','pit bull','2007-08-20',1),
+(null,'gato','Bolinho','siamês','2006-11-30',2),
+(null,'gato','garfield','Persa','2009-05-27',3),
+(null,'ave','xico','calopsita','2010-08-15',4);
+
+-- Exibir todos os dados de cada tabela criada, separadamente.
+select * from pet;
+
+-- Altere o tamanho da coluna nome do cliente.
+alter table cliente modify nome varchar (35);
+
+-- Exibir os dados de todos os pets que são de um determinado tipo (por exemplo: cachorro)
+select * from pet where especie = 'cachorro';
+
+-- Exibir apenas os nomes e as datas de nascimento dos pets.
+select nomePet,dataNascimento from pet;
+
+-- Exibir os dados dos pets ordenados em ordem crescente pelo nome.
+select * from pet  order by nomepet;
+
+-- Exibir os dados dos clientes ordenados em ordem decrescente pelo bairro.
+select * from cliente order by bairro desc;
+
+-- Exibir os dados dos pets cujo nome comece com uma determinada letra.
+select * from pet where nomePet like 't%';
+
+-- Exibir os dados dos clientes que têm o mesmo sobrenome.
+select * from cliente where sobrenome = 'Oliveira';
+
+-- Alterar o telefone de um determinado cliente.
+update cliente set telCelular = '(11) 97286-4522' where idCliente = 1;
+
+-- Exibir os dados dos clientes para verificar se alterou.
+select * from cliente;
+
+-- Exibir os dados dos pets e dos seus respectivos donos.
+select * from pet join cliente on idCliente = fkCliente;
+
+-- Exibir os dados dos pets e dos seus respectivos donos, mas somente de um determinado cliente.
+select * from pet join cliente on idCliente = fkCliente where nome = 'Anderson';
+
+-- Excluir algum pet.
+
+
+
+
+
+
+
+
+
+email
+
+professora a respeito do login  chegamos a duas conclusões  e queremos checar qual esta correta ou qual pode ser retrabalhada 
+ 
+O arquivo DerBandSoftware propõe que a empresa que contratar o serviço tenha um cadastro e a partir de um identificador como cnpj por exemplo ela consegueria criar quantos logins ela precisasse , ai no cadastro ela colocaria um login uma senha e o cnpj que ja estivesse cadastrado para efetuar o cadastro , caso não fosse uma empresa cadastrada ela não poderia cadastrar o usuário para ter acesso ao dashboards.
+
+E no arquivo modeloMATEUS  propõe que

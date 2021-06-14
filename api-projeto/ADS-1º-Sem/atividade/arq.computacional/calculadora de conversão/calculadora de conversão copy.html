@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora de conversão</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<link rel="stylesheet" href="calculadora de conversão.css">
+
+<body>
+   
+    <center>
+        <div>
+            <h1>Calculadora de Conversão de base númerica</h1>
+
+            <br><br>
+
+            Decimal = <input id="in_num" class="input" type="text">
+            <br><br>
+            binário <input class="input" type="checkbox" onclick="binario()">
+            <p id="p_binario"></p>
+            <br>
+            octal <input class="input" type="checkbox" onclick="f_octal()">
+            <p id="p_octal"></p>
+            <br>
+            hexadecimal <input class="input" type="checkbox" onclick="hexadecimal()">
+            <p id="p_hexadecimal"></p>
+            <br>
+        </div>
+    </center>
+
+</body>
+
+</html>
+
+<script>
+
+    function binario() {
+
+        var numero = Number(in_num.value)
+
+        var bin = numero.toString(2);
+
+        p_binario.innerHTML = `A conversão do numero em <u><b>Binário</b></u> é: "${bin}"`;
+
+    }
+
+    function f_octal() {
+
+        var numero = Number(in_num.value)
+
+        var octal = numero.toString(8);
+
+        p_octal.innerHTML = `A conversão do numero em <u><b>Octal</b></u> é: "${octal}"`;
+
+
+    }
+
+    function hexadecimal() {
+
+        var numero = Number(in_num.value)
+
+        var hexa = numero.toString(16);
+
+        p_hexadecimal.innerHTML = `A conversão do numero em <u><b>Hexadecimal</b></u> é: "${hexa.toUpperCase()}"`;
+
+
+    }
+
+</script>

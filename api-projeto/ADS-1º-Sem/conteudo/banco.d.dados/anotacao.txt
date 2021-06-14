@@ -1,0 +1,42 @@
+tipos de atributos 
+
+-simples = nome completo, tipo do sençor
+-composto = endereço , é dividido em partes de familhas difererntes como ... "rua" "bairro", que são de familias diferentes
+-monovalorado = 
+-multivalorado = valores divididos mas da mesma familia - por exemplo o telefone = pode ter telefone fixo, celular ... etc
+-derivados= é um dado que passa por um processamento, por exemplo a idade que tem que ser atualizado a cada ano...
+-indentificador= primary key , ou seja o atributo que indentifica a tabela, pode ser simples que é unica ou composta que depende de mais de um atributo.
+
+
+entidade = tabelas
+
+entidade forte= é ima tabela que não nescecita de outra tabela para existir
+entidade fraca = depende de outra tabela  para existir 
+
+
+
+tipos de ralacionamentos
+
+*relacionamento um para um
+
+*relacionamento um para ,muitos
+
+*relacionamento muitos para muitos
+
+*relacionamento dependente
+
+*ralacionamento recursivo = é uma fk que se relaciona com a pk da mesma tabela
+
+
+funções sql:
+-count()= conta a quantidade de linhas da coluna solicitada, sempre ingnorando os campos com null
+-sum()= soma
+-avg()= média
+-max()=maximo
+-min()=minimo
+-truncate()= numero de casas depois da virgula
+-round()= numero de casas depois da virgula com aredondamento
+-group by()= agrupa os campos selecionados
+
+
+

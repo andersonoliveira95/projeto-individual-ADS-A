@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
+
+    <style>
+        .grafico {
+            background-color: rgb(56, 54, 54);
+            width: 60%;
+            overflow: auto;
+            margin: auto;
+        }
+
+        .dashboard {
+            height: 800px;
+            padding-bottom: 75px;
+            text-align: center;
+            background-color: rgb(33, 32, 32);
+        }
+
+        .dashboard h1 {
+            margin: 0;
+            padding: 40px 0;
+            color: orangered;
+        }
+    </style>
+
+
+
+
+</head>
+
+
+<body>
+    <div class="dashboard">
+        <div class="container">
+            <h1>Monitoramento de temperatura</h1>
+            <div >
+                <div class="grafico">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var ctx = document.getElementById('myChart');
+
+    var meuGrafico = new Chart(ctx, {
+
+        type: 'line',
+
+        data: {
+            labels: ["10 mnts", "20 mnts", "30 mnts", "40 mnts", "50 mnts", "60 mnts"],
+            datasets: [
+                {
+                    label: "temperatura freezer 1",
+                    data: [-11, -17, -15, -11, -18, -18.5],
+                    borderWidth: 5,
+                    borderColor: 'rgba(20, 20, 20, .7)',
+                    backgroundColor: 'transparent',
+                },
+
+
+                {
+
+                    type: 'line',
+                    label: "alarme de instabilidade",
+                    data: [-17, -17, -17, -17, -17, -17],
+                    borderWidth: 1,
+                    borderColor: '#FAFE0B',
+                    backgroundColor: 'transparent'
+                },
+
+
+                {
+
+                    type: 'line',
+                    label: "alarme de instabilidade",
+                    data: [-12, -12, -12, -12, -12, -12],
+                    borderWidth: 1,
+                    borderColor: '#FAFE0B',
+                    backgroundColor: 'transparent'
+                },
+
+                {
+
+                    type: 'line',
+                    label: "Temperatura critica",
+                    data: [-19, -19, -19, -19, -19, -19],
+                    borderWidth: 1,
+                    borderColor: 'red',
+                    backgroundColor: 'transparent'
+                },
+
+
+                {
+                    type: 'line',
+                    label: "Temperatura critica",
+                    data: [-10, -10, -10, -10, -10, -10],
+                    borderWidth: 1,
+                    borderColor: 'red',
+                    backgroundColor: 'transparent'
+                }
+            ]
+        },
+
+
+
+
+        options: {
+
+            title: {
+                display: true,
+                fontSize: 20,
+                text: "Temperatura Freezer",
+                position: 'top',
+            },
+            legend: {
+                display: true,
+                reverse: true,
+                position: 'right'
+
+            },
+            layout: {
+                padding: {
+                    left: 25,
+                    top: 100,
+
+                },
+
+            }
+        }
+    })
+
+    Chart.defaults.global.defaultFontColor = "#F74418";
+</script>

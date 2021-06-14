@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10 - button function</title>
+</head>
+
+<body>
+    <h2>Aula 10 - button function</h2>
+    <button onclick="prim_func()">Meu Primeiro Botão</button>
+    <!--
+        tag <button> -> desenha um botão simples na tela.
+            seu corpo é o que aparece na 'cara' do botão      
+            atributo 'onclick' indica qual função JS será invocada
+            é possível usar o atributo style nesta tag
+
+        O atributo 'onclick' funciona em QUALQUER tag HTML (<b>, <i>, <span>, <img>...)
+     -->
+</body>
+
+</html>
+<script>
+    function prim_func() {
+        alert("Esta é uma mensagem solta do script");
+        alert("Segunda mensagem!!!");
+    }
+/*
+Uma 'function' é uma função, ou seja, um 'programinha' que fica 'guardado' na página
+pronto para uso sempre for necessário.
+
+Após a palavra 'function', temos o nome da função. Regras para o nome da função:
+* NÃO pode começar com número (1,2,3...). Mas pode ter número depois. ex: funcao9()
+* NÃO pode ter espaços em branco. Ao invés, use, por exemplo, underline (_)
+* NÃO pode ter hifen (sinal de menos) no nome
+* Logo após o nome da função DEVE haver um par de parênteses
+* Não é recomendado o uso de caracteres especiais (acentos, cedilhas etc)
+* Recomendação: sempre com letras minúsculas e palavras separadas por underline (_)
+
+Logo após os parênteses da função, abra chaves '{'
+Fechamos as chaves após todas as instruções que queremos que nossa função realize.
+*/
+
+</script>
